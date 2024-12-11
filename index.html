@@ -7,37 +7,50 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        #container {
+            width: 800px;
+            margin: 20px;
+            position: relative;
         }
         #title {
             text-align: left;
             font-size: 24px;
             font-weight: bold;
-            margin-left: 50px;
+            margin-bottom: 20px;
         }
         #player {
-            margin-top: 20px;
+            width: 800px;
+            height: 450px;
+            background-color: #000;
         }
         #aiButton {
-            margin-top: 20px;
+            margin-top: 10px;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             background-color: white;
             color: darkblue;
             border: 2px solid darkblue;
-            display: inline-flex;
-            align-items: center;
+            position: absolute;
+            right: 0;
+            top: 500px; /* 视频高度450px + 1cm (大约37.8px) */
         }
         #popup {
             display: none;
             position: absolute;
-            right: 10px;
-            top: 50px;
+            left: 880px; /* 视频宽度800px + 1cm (大约37.8px) */
+            top: 0;
             width: 300px;
-            height: 533px; /* 设置与视频高度一致 */
-            overflow-y: auto; /* 使弹窗可滚动 */
+            height: 533px;
+            overflow-y: auto;
             background-color: #e0f7fa;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -67,12 +80,14 @@
 </head>
 <body>
 
-    <div id="title">【花小烙】古代大旱之后为啥总会发生蝗灾而不是别的虫灾？【蝗虫篇一】</div>
-    <div id="player"></div>
+    <div id="container">
+        <div id="title">【花小烙】古代大旱之后为啥总会发生蝗灾而不是别的虫灾？【蝗虫篇一】</div>
+        <div id="player"></div>
 
-    <button id="aiButton">
-        AI小助手
-    </button>
+        <button id="aiButton">
+            AI小助手
+        </button>
+    </div>
 
     <div id="popup">
         <span class="close-btn" onclick="closePopup()">×</span>
@@ -81,17 +96,17 @@
         <p class="small-text">古代大旱后为何常发生蝗灾而非其他虫灾的原因。干旱导致蝗虫繁殖条件优越，蝗虫数量激增，且在聚集后行为改变，形成蝗灾。蝗虫在聚集后，不仅数量增多，且飞行能力强，食量巨大，且能迅速迁移，导致农作物被大量吞噬。此外，蝗虫在聚集后，会释放一种聚集性信息素，吸引更多蝗虫聚集，形成更大的蝗灾。同时，蝗虫在聚集后，会释放有毒物质，导致鸟类不愿食用，进一步加剧了蝗灾的严重性。</p>
         <p style="background-color: white;">要点</p>
         <p class="bold small-text">古代大旱后易发蝗灾，因蝗虫耐旱耐热，繁殖快，且干旱抑制其天敌。</p>
-        <p class="small-text"><a href="#" onclick="seekToTime(1); return false;">00:01 古代大旱后常发生蝗灾，电视剧常有相关画面描述。</a></p>
-        <p class="small-text"><a href="#" onclick="seekToTime(19); return false;">00:19 旱灾后蝗虫大量繁殖，形成蝗灾，人可食用蝗虫。</a></p>
-        <p class="small-text"><a href="#" onclick="seekToTime(83); return false;">01:23 干旱使蝗虫繁殖条件良好，产卵地增多，种群数量激增</a></p>
+        <p class="small-text"><a href="#" onclick="seekToTime(1); return false;">00:01：古代大旱后常发生蝗灾，电视剧常有相关画面描述。</a></p>
+        <p class="small-text"><a href="#" onclick="seekToTime(19); return false;">00:19旱灾后蝗虫大量繁殖，形成蝗灾，人可食用蝗虫。</a></p>
+        <p class="small-text"><a href="#" onclick="seekToTime(83); return false;">01:23：干旱使蝗虫繁殖条件良好，产卵地增多，种群数量激增</a></p>
         <div class="divider"></div>
         <p class="bold small-text">蝗灾形成与蝗虫群居行为有关，且群居后蝗虫形态和食量改变，难以控制。</p>
-        <p class="small-text"><a href="#" onclick="seekToTime(151); return false;">02:31 科普视频介绍散居型蝗虫的特性</a></p>
-        <p class="small-text"><a href="#" onclick="seekToTime(169); return false;">02:49 群居型蝗虫在短时间内改变行为，变得暴躁且食量增大</a></p>
-        <p class="small-text"><a href="#" onclick="seekToTime(229); return false;">03:49 中国2000多年间发生800多次蝗灾，古人会吃蝗虫但难以应对其快速移动和毒性</a></p>
+        <p class="small-text"><a href="#" onclick="seekToTime(151); return false;">02:31科普视频介绍散居型蝗虫的特性</a></p>
+        <p class="small-text"><a href="#" onclick="seekToTime(169); return false;">02:49群居型蝗虫在短时间内改变行为，变得暴躁且食量增大</a></p>
+        <p class="small-text"><a href="#" onclick="seekToTime(229); return false;">03:49：中国2000多年间发生800多次蝗灾，古人会吃蝗虫但难以应对其快速移动和毒性</a></p>
         <div class="divider"></div>
         <p class="bold small-text">古代大旱后，蝗虫繁殖快，食物多，易成灾。</p>
-        <p class="small-text"><a href="#" onclick="seekToTime(298); return false;">04:58 古代大旱后，土壤干燥，适合蝗虫繁殖，导致蝗灾</a></p>
+        <p class="small-text"><a href="#" onclick="seekToTime(298); return false;">04:58：古代大旱后，土壤干燥，适合蝗虫繁殖，导致蝗灾</a></p>
     </div>
 
     <script src="https://player.polyv.net/script/player.js"></script>
@@ -101,8 +116,8 @@
         function initPlayer() {
             player = polyvPlayer({
                 wrap: '#player',
-                width: 800,
-                height: 533,
+                width: '100%',
+                height: 450,
                 vid: 'g9e4d25871f0e11511158002b3c3cf0b_g'
             });
         }
